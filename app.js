@@ -23,6 +23,57 @@ const phrases = [
 var missed = 0;
 var shouldReset = false;
 
+// sounds for game
+const backgroundSound = new Howl({
+    src: ['/sounds/backgroundSound.wav'],
+    autoplay: true,
+    loop: true,
+    volume: 0.15
+  });
+
+  const startSound = new Howl({
+    src: ['/sounds/start.wav'],
+    volume: 0.6
+  });
+
+  const correctGuessSound = new Howl({
+    src: ['/sounds/correctGuess.wav'],
+    volume: 0.4
+  });
+
+  const wrongGuessSound = new Howl({
+    src: ['/sounds/wrongGuess.wav'],
+    volume: 0.4
+  });
+
+  const youWinSound = new Howl({
+    src: ['/sounds/youWin.wav'],
+    volume: 0.6
+  });
+
+  const winScreenSound = new Howl({
+    src: ['/sounds/winScreen.wav'],
+    volume: 0.4,
+    onend: function() {
+        youWinSound.play();
+    }
+  });
+
+  const youLoseSound = new Howl({
+    src: ['/sounds/youLose.wav'],
+    volume: 0.6
+  });
+
+  const loseScreenSound = new Howl({
+    src: ['/sounds/loseScreen.wav'],
+    volume: 0.4,
+    onend: function() {
+        youLoseSound.play();
+    }
+  });
+
+  
+
 // Used to fade out an element and then hide it from display
 function fadeOutAndHide(element) {
   var op = 1.0; // initial opacity
@@ -88,6 +139,7 @@ function checkLetter(btn) {
 function checkWin() {
   if (letters.length === correctLetters.length) {
     fadeInfromHidden(startOverlay);
+    winScreenSound.play();
     startOverlay.className = "win";
     overlayTitle.innerHTML = "You did it! Im proud of you.";
     startGameButton.textContent = "Play Another Round!";
@@ -95,6 +147,7 @@ function checkWin() {
     console.log("Won Game");
   } else if (missed === 5) {
     fadeInfromHidden(startOverlay);
+    loseScreenSound.play();
     startOverlay.className = "lose";
     overlayTitle.innerHTML = "You didn't win this time but don't give up!";
     startGameButton.textContent = "Try Again";
@@ -136,6 +189,7 @@ startGameButton.addEventListener('click', (e) => {
     addPhrasetoDisplay(phraseArray);
     console.log("Start Game")
   }
+  startSound.play();
   fadeOutAndHide(startOverlay);
 })
 
@@ -150,6 +204,9 @@ qwerty.addEventListener("click", (e) => {
     if (letterFound === false && missed < 5) {
       lives[missed].style.opacity = 0.4;
       missed++;
+      wrongGuessSound.play();
+    } else {
+        correctGuessSound.play();
     }
   }
   checkWin();
