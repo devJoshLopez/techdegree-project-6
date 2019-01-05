@@ -95,6 +95,8 @@ button {
 .show {
   color: #000;
   background-color: #76CE82;
+  animation: bounce 0.5s;
+  transform: scale(1);
 }
 
 /* Keyboard */
@@ -161,4 +163,12 @@ button {
 
 .lose a {
   color: var(--color-lose);
+}
+
+@keyframes bounce {
+  0% { transform: scale(1.1); opacity: 1 }
+  50% { transform: scale(1.6); opacity: .7; }
+  60% { transform: scale(0.6); opacity: 1 }
+  80% { transform: scale(0.95) }
+  100% { transform: scale(1) }
 }
