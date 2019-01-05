@@ -25,34 +25,33 @@ var shouldReset = false;
 
 // sounds for game
 const backgroundSound = new Howl({
-  src: ['/sounds/backgroundSound.wav'],
-  autoplay: true,
+  src: ['sounds/backgroundSound.wav'],
   loop: true,
   volume: 0.15
 });
 
 const startSound = new Howl({
-  src: ['/sounds/start.wav'],
+  src: ['sounds/start.wav'],
   volume: 0.6
 });
 
 const correctGuessSound = new Howl({
-  src: ['/sounds/correctGuess.wav'],
+  src: ['sounds/correctGuess.wav'],
   volume: 0.4
 });
 
 const wrongGuessSound = new Howl({
-  src: ['/sounds/wrongGuess.wav'],
+  src: ['sounds/wrongGuess.wav'],
   volume: 0.4
 });
 
 const youWinSound = new Howl({
-  src: ['/sounds/youWin.wav'],
+  src: ['sounds/youWin.wav'],
   volume: 0.6
 });
 
 const winScreenSound = new Howl({
-  src: ['/sounds/winScreen.wav'],
+  src: ['sounds/winScreen.wav'],
   volume: 0.4,
   onend: function () {
     youWinSound.play();
@@ -60,12 +59,12 @@ const winScreenSound = new Howl({
 });
 
 const youLoseSound = new Howl({
-  src: ['/sounds/youLose.wav'],
+  src: ['sounds/youLose.wav'],
   volume: 0.6
 });
 
 const loseScreenSound = new Howl({
-  src: ['/sounds/loseScreen.wav'],
+  src: ['sounds/loseScreen.wav'],
   volume: 0.4,
   onend: function () {
     youLoseSound.play();
@@ -181,6 +180,7 @@ function resetGame() {
 
 startGameButton.addEventListener('click', (e) => {
   e.preventDefault();
+  backgroundSound.play();
   if (startGameButton.textContent != "Start Game") {
     resetGame();
   } else {
