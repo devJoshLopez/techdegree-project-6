@@ -25,54 +25,53 @@ var shouldReset = false;
 
 // sounds for game
 const backgroundSound = new Howl({
-    src: ['/sounds/backgroundSound.wav'],
-    autoplay: true,
-    loop: true,
-    volume: 0.15
-  });
+  src: ['/sounds/backgroundSound.wav'],
+  autoplay: true,
+  loop: true,
+  volume: 0.15
+});
 
-  const startSound = new Howl({
-    src: ['/sounds/start.wav'],
-    volume: 0.6
-  });
+const startSound = new Howl({
+  src: ['/sounds/start.wav'],
+  volume: 0.6
+});
 
-  const correctGuessSound = new Howl({
-    src: ['/sounds/correctGuess.wav'],
-    volume: 0.4
-  });
+const correctGuessSound = new Howl({
+  src: ['/sounds/correctGuess.wav'],
+  volume: 0.4
+});
 
-  const wrongGuessSound = new Howl({
-    src: ['/sounds/wrongGuess.wav'],
-    volume: 0.4
-  });
+const wrongGuessSound = new Howl({
+  src: ['/sounds/wrongGuess.wav'],
+  volume: 0.4
+});
 
-  const youWinSound = new Howl({
-    src: ['/sounds/youWin.wav'],
-    volume: 0.6
-  });
+const youWinSound = new Howl({
+  src: ['/sounds/youWin.wav'],
+  volume: 0.6
+});
 
-  const winScreenSound = new Howl({
-    src: ['/sounds/winScreen.wav'],
-    volume: 0.4,
-    onend: function() {
-        youWinSound.play();
-    }
-  });
+const winScreenSound = new Howl({
+  src: ['/sounds/winScreen.wav'],
+  volume: 0.4,
+  onend: function () {
+    youWinSound.play();
+  }
+});
 
-  const youLoseSound = new Howl({
-    src: ['/sounds/youLose.wav'],
-    volume: 0.6
-  });
+const youLoseSound = new Howl({
+  src: ['/sounds/youLose.wav'],
+  volume: 0.6
+});
 
-  const loseScreenSound = new Howl({
-    src: ['/sounds/loseScreen.wav'],
-    volume: 0.4,
-    onend: function() {
-        youLoseSound.play();
-    }
-  });
+const loseScreenSound = new Howl({
+  src: ['/sounds/loseScreen.wav'],
+  volume: 0.4,
+  onend: function () {
+    youLoseSound.play();
+  }
+});
 
-  
 
 // Used to fade out an element and then hide it from display
 function fadeOutAndHide(element) {
@@ -206,7 +205,7 @@ qwerty.addEventListener("click", (e) => {
       missed++;
       wrongGuessSound.play();
     } else {
-        correctGuessSound.play();
+      correctGuessSound.play();
     }
   }
   checkWin();

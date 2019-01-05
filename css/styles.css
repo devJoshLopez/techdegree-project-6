@@ -29,7 +29,9 @@ body {
   height: 100vh;
 }
 
-li, ol, ul {
+li,
+ol,
+ul {
   padding: 0;
   display: inline-block;
 }
@@ -166,9 +168,26 @@ button {
 }
 
 @keyframes bounce {
-  0% { transform: scale(1.1); opacity: 1 }
-  50% { transform: scale(1.6); opacity: .7; }
-  60% { transform: scale(0.6); opacity: 1 }
-  80% { transform: scale(0.95) }
-  100% { transform: scale(1) }
+  0% {
+    transform: scale(1.1);
+    opacity: 1
+  }
+
+  50% {
+    transform: scale(1.6);
+    opacity: .7;
+  }
+
+  60% {
+    transform: scale(0.6);
+    opacity: 1
+  }
+
+  80% {
+    transform: scale(0.95)
+  }
+
+  100% {
+    transform: scale(1)
+  }
 }
