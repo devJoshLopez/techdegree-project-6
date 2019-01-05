@@ -180,7 +180,12 @@ function resetGame() {
 
 startGameButton.addEventListener('click', (e) => {
   e.preventDefault();
-  backgroundSound.play();
+
+  if (!backgroundSound.playing()) {
+      console.log("is not playing");
+    backgroundSound.play();
+  }
+  
   if (startGameButton.textContent != "Start Game") {
     resetGame();
   } else {
@@ -188,6 +193,7 @@ startGameButton.addEventListener('click', (e) => {
     addPhrasetoDisplay(phraseArray);
     console.log("Start Game")
   }
+  
   startSound.play();
   fadeOutAndHide(startOverlay);
 })
