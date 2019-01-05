@@ -88,6 +88,8 @@ button {
   color: transparent;
   background: var(--color-neutral-light);
   border-radius: 5px;
+  -webkit-transition: background-color 1s ease-in; /* Safari */
+  transition: background-color 1s ease-in;
 }
 
 .space {
